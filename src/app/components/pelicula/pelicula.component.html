@@ -1,0 +1,82 @@
+
+<main class="container mb-5" *ngIf="user.role == 'ROLE_ADMIN'">
+            
+    <!-- peliculas -->
+    <div class="container series">
+     <div class="peliculas-recomendadas contenedor mt-3">
+         <div class="contenedor-titulo-controles mt-5 mb-5">
+             <h3>Atletas</h3>
+             
+         </div>
+         
+
+     <div class="row justify-content-around mb-3 tablas">
+     
+      
+      <h3 *ngIf="user.role == 'ROLE_ADMIN' && !atletas" class="text-center text-danger">Cargando...</h3>
+        <!--  <div class="card mb-3 tarjetas" style="width: 18rem;" *ngFor="let pelicula of atletas">
+             
+             <p>{{pelicula.athlete}}</p>
+            
+         </div> -->
+         <table class="table" >
+          
+         
+            <thead class="text-white">
+              <tr>
+                <th scope="col">Atleta</th>
+                <th scope="col">edad</th>
+                <th scope="col">pais</th>
+                <th scope="col">Año</th>
+                <th scope="col">fecha</th>
+                <th scope="col">deporte</th>
+                <th scope="col">oro</th>
+                <th scope="col">plata</th>
+                <th scope="col">bronce</th>
+                <th scope="col">total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="text-warning" *ngFor="let pelicula of atletas">
+                <td>{{pelicula.athlete}}</td>
+                <td>{{pelicula.age}}</td>
+                <td>{{pelicula.country}}</td>
+                <td>{{pelicula.year}}</td>
+                <td>{{pelicula.date}}</td>
+                <td>{{pelicula.sport}}</td>
+                <td>{{pelicula.gold}}</td>
+                <td>{{pelicula.silver}}</td>
+                <td>{{pelicula.bronze}}</td>
+                <td>{{pelicula.total}}</td>
+              </tr>
+             
+            </tbody>
+          </table>
+         
+        
+    </div>
+
+
+     </div>
+   
+
+      
+      
+
+
+
+ </div>
+
+
+
+ 
+ </main>
+
+
+ <div class="container mantenimiento mt-5" *ngIf="user.role == 'ROLE_COORDINADOR'">
+
+
+  <h1 class="text-center text-danger mt-5 mb-5">Pagina en mantenimiento</h1>
+  <p class="text-white text-center"><i class="fas fa-tools icono"></i> Intenta por favor mas tarde</p>
+    
+  </div> 

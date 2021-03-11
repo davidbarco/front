@@ -1,0 +1,66 @@
+
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light header">
+            <div class="" *ngIf="user && user.role == 'ROLE_ADMIN'">
+                <a class="navbar-brand logo"  routerLink="/atleta">SmartQuick</a> <img src="../../../assets/images/img/smart.png" height="40" alt="">
+            </div>
+            <div class="iconoL" *ngIf="user && user.role == 'ROLE_COORDINADOR'">
+                <a class="navbar-brand logo "  routerLink="/atleta">SmartQuick</a> <img src="../../../assets/images/img/smart.png" height="40" alt="">
+            </div>
+            <div *ngIf="!user">
+                <a class="navbar-brand logo "  routerLink="/atleta">SmartQuick</a> <img src="../../../assets/images/img/smart.png" height="40" alt="">
+            </div>
+            
+            <button *ngIf="user" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto" *ngIf="user && this.user.role == 'ROLE_ADMIN'">
+                    <li class="nav-item  active">
+                        <a class="nav-link text-white"  routerLink="/atleta"  [routerLinkActive]="['active']">Atletas</a>
+                    </li>
+                    <li class="nav-item  active">
+                        <a class="nav-link text-white"  routerLink="/categoria"  [routerLinkActive]="['active']">Categorias</a>
+                    </li>
+                 
+                  
+                </ul>
+               
+                <ul *ngIf="user" class="navbar-nav">
+                    <li class="nav-item  active">
+                        
+                        <a class="nav-link text-danger"  [routerLinkActive]="['active']">Hola: <strong class="nombreUser">{{this.user.firstName}}</strong></a>
+                     </li>
+
+                     <li class="nav-item  active">
+                        
+                        <a class="nav-link text-danger" [routerLinkActive]="['active']">Usuario: <strong class="nombreRole">{{this.user.role}}</strong></a>
+                     </li>
+                     <li class="nav-item  active mr-4" *ngIf="user.image !== 'null'">
+                        <img routerLink="/actualizarUser" class="miLogo" src="{{url+'get-image-user/'+this.user.image}} "
+                width="34" height="50">
+                    </li>
+                    <li class="nav-item  active mr-4" *ngIf="user.image == 'null'">
+                    
+                        <img routerLink="/actualizarUser" class="miLogo" src="../../../assets/images/img/perfil.png"
+                width="34" height="50">
+                    </li>
+                    
+                     <li class="nav-item  active">
+                        <a class="nav-link text-white cerrar" (click)="destroySession()">Cerrar Sesion</a>
+                    </li>
+                
+                </ul>
+                
+            </div>
+        </nav>
+    </header>
+
+  
+
+
+
+
